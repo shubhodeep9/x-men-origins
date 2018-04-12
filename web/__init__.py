@@ -19,11 +19,21 @@ def __fetch(url="https://ambitionbox.com"):
                 }
 
 
-@app.route("/")
-def index():
+@app.route("/cors")
+def cross():
     url = request.args.get('url')
     r = __fetch(url)
     if(r["status"] != 200):
         abort(r["status"])
 
     return r["body"]
+
+@app.route("/")
+def index():
+    return """
+<h1>Welcome to X-Mens-Origins</h1>
+<form action="/cors">
+<input type="text" name="url">
+<input type="submit">
+</form>
+    """
