@@ -31,9 +31,14 @@ def cross():
 @app.route("/")
 def index():
     return """
-<h1>Welcome to X-Men Origins</h1>
-<form action="/cors">
-<input type="text" name="url">
-<input type="submit">
-</form>
+<center>
+    <h1>Welcome to X-Men Origins</h1>
+
+    <h2 style="font-weight: lighter">A web app to ease cross origin requests for AJAX requests</h2>
+
+    <form action="/cors">
+        <input type="text" name="url">
+        <input type="submit">
+    </form>
+</center>
     """
