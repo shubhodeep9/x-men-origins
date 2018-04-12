@@ -5,12 +5,12 @@ Visit the [website](https://x-men-origins.herokuapp.com/)
 
 
 # Installation
-```
+```sh
 > pip install -r requirements.txt
 ```
 
 # Usage
-```
+```sh
 > FLASK_APP=web/__init__.py flask run # this will run at port 5000 by default
 # or
 > gunicorn web:app # this at 8000

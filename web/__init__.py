@@ -31,7 +31,7 @@ def cross():
 @app.route("/")
 def index():
     return """
-<h1>Welcome to X-Mens-Origins</h1>
+<h1>Welcome to X-Men Origins</h1>
 <form action="/cors">
 <input type="text" name="url">
 <input type="submit">
