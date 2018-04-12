@@ -11,3 +11,6 @@
 ```
 > FLASK_APP=web/__init__.py flask run
 ```
+Go to url `http://localhost:5000/?url=<url>`.
+
+Enjoy

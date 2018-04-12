@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 import requests
 
@@ -11,4 +11,5 @@ def __fetch(url="https://ambitionbox.com"):
 
 @app.route("/")
 def index():
-    return __fetch()
+    url = request.args.get('url')
+    return __fetch(url)
