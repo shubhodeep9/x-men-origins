@@ -3,13 +3,24 @@
 
 Visit the [website](https://x-men-origins.herokuapp.com/)
 
+# Using with AJAX
 
-# Installation
+```js
+// using jquery get for example
+$.get('https://x-men-origins.herokuapp.com/cors?url=https://google.com')
+.then(function(data) {
+    console.log(data);
+});
+```
+
+# Development
+
+## Installation
 ```sh
 > pip install -r requirements.txt
 ```
 
-# Usage
+## Usage
 ```sh
 > FLASK_APP=web/__init__.py flask run # this will run at port 5000 by default
 # or
