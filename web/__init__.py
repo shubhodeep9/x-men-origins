@@ -33,7 +33,7 @@ def cross():
     url = request.args.get('url')
     user_agent = request.headers.get('User-Agent')
     r = __fetch(url, user_agent)
-    if(r["status"] != 200):
+    if(r["status"] != 200 and r["status"] != 503):
         abort(r["status"])
 
     return r["body"]
