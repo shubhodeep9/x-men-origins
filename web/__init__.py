@@ -5,9 +5,18 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-def __fetch(url="https://ambitionbox.com"):
+def __fetch(url="https://ambitionbox.com", user_agent=None):
+    headers_Get = {
+        'User-Agent': user_agent,
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1'
+    }
     try:
-        r = requests.get(url)
+        r = requests.get(url, headers=headers_Get)
         return {
                 "status": r.status_code,
                 "body": r.text
@@ -22,7 +31,8 @@ def __fetch(url="https://ambitionbox.com"):
 @app.route("/cors")
 def cross():
     url = request.args.get('url')
-    r = __fetch(url)
+    user_agent = request.headers.get('User-Agent')
+    r = __fetch(url, user_agent)
     if(r["status"] != 200):
         abort(r["status"])
 
