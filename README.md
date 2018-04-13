@@ -30,4 +30,6 @@ Go to url `http://localhost:8000/cors?url=<url>`.
 
 There is a form to use at `http://localhost:8000/`
 
+![home page](https://github.com/shubhodeep9/x-men-origins/raw/master/.github/Screen%20Shot%202018-04-13%20at%202.54.18%20PM.png)
+
 Enjoy
