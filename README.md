@@ -3,6 +3,11 @@
 
 Visit the [website](https://x-men-origins.herokuapp.com/)
 
+# Changelog
+## v0.2.0
+- Url changed from `/cors?url=<url>` to `/cors/<url>`
+- Backward compatibility present
+
 # Using with AJAX
 
 ```js
