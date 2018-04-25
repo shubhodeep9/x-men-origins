@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, abort, redirect, url_for
 from flask_cors import CORS
 import requests
 
@@ -27,6 +27,10 @@ def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
                 "body": ""
                 }
 
+@app.route("/cors")
+def old_cross():
+    url = request.args.get('url')
+    return redirect(url_for('cross', url=url))
 
 @app.route("/cors/<path:url>")
 def cross(url):
