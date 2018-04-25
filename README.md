@@ -7,7 +7,7 @@ Visit the [website](https://x-men-origins.herokuapp.com/)
 
 ```js
 // using jquery get for example
-$.get('https://x-men-origins.herokuapp.com/cors?url=https://google.com')
+$.get('https://x-men-origins.herokuapp.com/cors/https://google.com')
 .then(function(data) {
     console.log(data);
 });
@@ -26,7 +26,7 @@ $.get('https://x-men-origins.herokuapp.com/cors?url=https://google.com')
 # or
 > gunicorn web:app # this at 8000
 ```
-Go to url `http://localhost:8000/cors?url=<url>`.
+Go to url `http://localhost:8000/cors/<url>`.
 
 There is a form to use at `http://localhost:8000/`
 
