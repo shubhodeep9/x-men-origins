@@ -16,7 +16,7 @@ def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
         'Upgrade-Insecure-Requests': '1'
     }
     try:
-        r = requests.get(url, params, headers=headers_Get)
+        r = requests.get(url, params=params, headers=headers_Get)
         return {
                 "status": r.status_code,
                 "body": r.text
