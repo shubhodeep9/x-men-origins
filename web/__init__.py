@@ -17,7 +17,6 @@ def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
     }
     try:
         r = requests.get(url, params, headers=headers_Get)
-        print r.url
         return {
                 "status": r.status_code,
                 "body": r.text
