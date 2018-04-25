@@ -6,7 +6,6 @@ app = Flask(__name__)
 CORS(app)
 
 def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
-    print params
     headers_Get = {
         'User-Agent': user_agent,
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
