@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, redirect, url_for
+from flask import Flask, request, abort, redirect, url_for, Response
 from flask_cors import CORS
 import requests
 
@@ -8,7 +8,7 @@ CORS(app)
 def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
     headers_Get = {
         'User-Agent': user_agent,
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,image/webp,image/apng,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
         'Accept-Encoding': 'gzip, deflate',
         'DNT': '1',
@@ -19,7 +19,8 @@ def __fetch(url="https://ambitionbox.com", params={}, user_agent=None):
         r = requests.get(url, params=params, headers=headers_Get)
         return {
                 "status": r.status_code,
-                "body": r.text
+                "body": r.content,
+                "headers": r.headers
             }
     except:
         return {
@@ -39,7 +40,9 @@ def cross(url):
     if(r["status"] != 200 and r["status"] != 503):
         abort(r["status"])
 
-    return r["body"]
+    res = Response(r["body"])
+    res.headers["Content-Type"] = r["headers"]["Content-Type"]
+    return res
 
 @app.route("/")
 def index():
@@ -55,3 +58,7 @@ def index():
     </form>
 </center>
     """
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0')
